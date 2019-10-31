@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:refactoring_guru/colors.dart';
+import 'package:refactoring_guru/course_circle_mini.dart';
 import 'package:refactoring_guru/fonts.dart';
 
 void main() => runApp(MyApp());
@@ -92,9 +93,62 @@ class _MyAppState extends State<MyApp> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
-                                  Icon(Icons.computer),
-                                  Text('ДИЗАЙН / ПРОЕКТИРОВАНИЕ'),
-                                  Text('5 ТРЕКОВ')
+                                  Stack(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 100),
+                                        child: CourseCircleMini(
+                                            'https://godesign.school/wp-content/uploads/2019/08/gCjKkyDHai8.jpg'),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 75),
+                                        child: CourseCircleMini(
+                                            'https://godesign.school/wp-content/uploads/2019/08/liD796klY3s.jpg'),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 50),
+                                        child: CourseCircleMini(
+                                            'https://godesign.school/wp-content/uploads/2019/08/ea1JgpxyrVM.jpg'),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 25),
+                                        child: CourseCircleMini(
+                                            'https://godesign.school/wp-content/uploads/2019/08/XEQximMncL0.jpg'),
+                                      ),
+                                      CourseCircleMini(
+                                          'https://godesign.school/wp-content/uploads/2019/08/IpnTQXXsEjc.jpg'),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: 25,
+                                      left: 16,
+                                      right: 16,
+                                    ),
+                                    child: Text(
+                                      'ДИЗАЙН / ПРОЕКТИРОВАНИЕ',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 12,
+                                      left: 16,
+                                      right: 16,
+                                      bottom: 16,
+                                    ),
+                                    child: Text(
+                                      '5 ТРЕКОВ',
+                                      style: TextStyle(
+                                        color: Color(0xff1a1921),
+                                        fontSize: 24,
+                                      ),
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
