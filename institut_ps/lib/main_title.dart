@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
+
 import 'colors.dart';
 
 class MainTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      child: Text(
-        'Курсы в Йошкар-Оле',
-        textAlign: TextAlign.left,
-        overflow: TextOverflow.ellipsis,
-        maxLines: 10,
-        style: TextStyle(
-          color: AppColors.fontPrimary,
-          fontSize: 32,
-        ),
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 40,
+              bottom: 8,
+              left: 16,
+              right: 16,
+            ),
+            child: Text(
+              'ИПС Творческий',
+              style: TextStyle(
+                color: AppColors.fontPrimary,
+                fontSize: 42,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16, right: 16, bottom: 32),
+            child: Text(
+              'Здесь учатся сотрудники, студенты и ребята, которые живо интересуются темой digital-профессий.',
+              style: TextStyle(fontSize: 24),
+            ),
+          )
+        ],
       ),
     );
   }
