@@ -15,8 +15,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var currentPage = MainSkillsList.pagesCount - 1.0;
+
   @override
   Widget build(BuildContext context) {
+    PageController controller = PageController(
+      initialPage: MainSkillsList.pagesCount - 1,
+    );
+
+    controller.addListener(() {
+      setState(() {
+        currentPage = controller.page;
+      });
+    });
+
     return MaterialApp(
       title: 'Курсы',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: AppFonts.main),
@@ -30,7 +42,21 @@ class _MyAppState extends State<MyApp> {
                 children: <Widget>[
                   MainTitle(),
                   MainSubtitle('НАВЫКИ', subtext: '+ 12 ТРЕКОВ'),
-                  MainSkillsList(),
+                  Stack(
+                    children: <Widget>[
+                      MainSkillsList(currentPage),
+                      Positioned.fill(
+                        child: PageView.builder(
+                          itemCount: MainSkillsList.pagesCount,
+                          controller: controller,
+                          reverse: true,
+                          itemBuilder: (context, index) {
+                            return Container();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
                   MainSubtitle('НАСТАВНИКИ'),
                   MainExpertsList(() {
                     _onExpertTap(context);
