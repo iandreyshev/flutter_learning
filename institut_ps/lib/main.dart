@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:refactoring_guru/colors.dart';
-import 'package:refactoring_guru/fonts.dart';
-import 'package:refactoring_guru/main_experts.dart';
-import 'package:refactoring_guru/main_skills_list.dart';
 import 'package:refactoring_guru/main_subtitle.dart';
 import 'package:refactoring_guru/main_title.dart';
+import 'package:refactoring_guru/resources/colors.dart';
+import 'package:refactoring_guru/resources/fonts.dart';
+import 'package:refactoring_guru/skills/main_skills_list.dart';
+
+import 'experts/main_experts_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +32,9 @@ class _MyAppState extends State<MyApp> {
                   MainSubtitle('НАВЫКИ', subtext: '+ 12 ТРЕКОВ'),
                   MainSkillsList(),
                   MainSubtitle('НАСТАВНИКИ'),
-                  MainExperts(),
+                  MainExpertsList(() {
+                    _onExpertTap(context);
+                  }),
                 ],
               ),
             ),
@@ -39,5 +42,27 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  void _onExpertTap(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(Icons.music_note),
+                    title: new Text('Music'),
+                    onTap: () => {}),
+                new ListTile(
+                  leading: new Icon(Icons.videocam),
+                  title: new Text('Video'),
+                  onTap: () => {},
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

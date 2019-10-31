@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:refactoring_guru/experts/expert_image.dart';
 
-class MainExperts extends StatelessWidget {
+class MainExpertsList extends StatelessWidget {
+  final Function onTap;
+
+  MainExpertsList(this.onTap);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,17 +17,20 @@ class MainExperts extends StatelessWidget {
         height: 500,
         child: GridView.count(
           padding: EdgeInsets.only(left: 16, bottom: 24, right: 16),
-          crossAxisCount: 3,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          crossAxisCount: 2,
           scrollDirection: Axis.horizontal,
-          children: List.generate(100, (index) {
-            return Card(
-              color: Colors.amber,
-              child: Text(
-                'Item $index',
-                style: Theme.of(context).textTheme.headline,
-              ),
-            );
-          }),
+          children: List.of([
+            ExpertImage.denisKorablev(onTap),
+            ExpertImage.annaTsaregorodceva(onTap),
+            ExpertImage.sergeyLapin(onTap),
+            ExpertImage.michailMorjanaev(onTap),
+            ExpertImage.pavelHramkin(onTap),
+            ExpertImage.konstantinTihomirov(onTap),
+            ExpertImage.vladKonovalov(onTap),
+            ExpertImage.dmitryFedotov(onTap),
+          ]),
         ),
       ),
     );

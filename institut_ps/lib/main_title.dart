@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
-import 'colors.dart';
+import 'package:refactoring_guru/resources/colors.dart';
 
 class MainTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(
