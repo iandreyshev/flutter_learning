@@ -39,10 +39,6 @@ class MainSkillsList extends StatelessWidget {
             var delta = i - currentPage;
             bool isOnRight = delta > 0;
 
-            if (i == 2) {
-              print(isOnRight);
-            }
-
             var start = padding +
                 max(
                     primaryCardLeft -
